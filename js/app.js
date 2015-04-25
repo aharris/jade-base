@@ -9,7 +9,7 @@ App = {
 
   bindNav: function () {
     var self = this;
-    $('a').click(function (e) {
+    $('.nav a').click(function (e) {
       e.preventDefault();
 
       var file = e.target.hash.split('#')[1];
@@ -34,7 +34,7 @@ App = {
     var container = $('[data-content-block]'),
       tmpl = this.templatizer["_" + file];
 
-    container.append(tmpl);
+    container.html(tmpl);
   }
 
 };
