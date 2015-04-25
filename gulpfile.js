@@ -1,14 +1,16 @@
 var gulp = require("gulp"),
-  connect = require("gulp-connect");
+  connect = require("gulp-connect"),
+  nib = require('nib'),
+  jeet = require('jeet'),
+  rupture = require('rupture');
 
 gulp.task('stylus', function () {
   var stylus = require("gulp-stylus"),
     flatten = require('gulp-flatten');
 
   return gulp.src(['**/*.styl', '!**/_*', '!./styl/lib/**/*.styl', '!./node_modules/**/*.styl'])
-    .pipe(stylus())
+    .pipe(stylus({use: [nib(), jeet(), rupture()]}))
     .pipe(flatten())
-    // .pipe(stylus({use: [nib(), jeet(), rupture()]}))
     .pipe(gulp.dest('./css'))
     .pipe(connect.reload());
 });
