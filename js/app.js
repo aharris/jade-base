@@ -24,7 +24,6 @@ App = {
   },
 
   updateRoute: function (route) {
-    console.log('updateRoute: ', route);
     window.location.hash = route;
   },
 
